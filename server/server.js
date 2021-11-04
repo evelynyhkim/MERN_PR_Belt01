@@ -12,14 +12,15 @@ const io = socket(server, {
         origin: 'http://localhost:3000',
         methods: ['GET', 'POST'],
         allowedHeaders: ['*'],
-        credentials: true,
+        credentials: true
     }
 })
 
 io.on("connection", socket => {
     console.log('socket id: ' + socket.id)
+    io.emit("Starting chat room")
 
     socket.on("event_from_client", data => 
         socket.broadcast.emit("event_to_all_other_clients", data)
     )
-})
+})  
