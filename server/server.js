@@ -10,16 +10,17 @@ const server = app.listen(8000, ()=>console.log("Listening on port 8000"))
 
 const io = socket(server, {
     cors: {
-        origin: 'http://10.191.10.61:3000',
-        methods: ['GET', 'POST'],
-        allowedHeaders: ['*'],
-        credentials: true
+        //origin: 'http://10.191.10.61:3000',
+        origin: 'http://localhost:3000',
+        //methods: ['GET', 'POST'],
+        //allowedHeaders: ['*'],
+        //credentials: true
     }
 })
 let interval
 io.on("connection", socket => {
-    console.log('socket id: ' + socket.id)
-    socket.send("Starting chat room")
+    console.log('new socket connected with id: ' + socket.id)
+    //socket.send("Starting chat room")
 
     //let itv = setInterval(() => socket.send("message", Date.now()), 1000);
     // if (interval) {

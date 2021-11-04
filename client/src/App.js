@@ -14,13 +14,13 @@ function App() {
   
   const [msg, setMsg] = useState("")
   useEffect(()=>{
-      console.log("App loaded")
+      console.log("App (re)rendered")
       
       socket.on("connect", ()=>{
         console.log("connecting socket")
         
         socket.on("FromAPI", data=>{
-          console.log(data)
+          //console.log(data)
           setMsg(data)
           socket.emit("event_from_client", "Client received a new timestamp")
         })
