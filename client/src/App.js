@@ -3,6 +3,11 @@ import {useState, useEffect} from 'react'
 import io from 'socket.io-client'
 import ChildComp from './ChildComp'
 
+//REFERENCE PROJECT
+//https://www.valentinog.com/blog/socket-react/#closing-the-socketio-connection-in-useeffect
+//FURTHER READING
+//https://dev.to/bravemaster619/how-to-use-socket-io-client-correctly-in-react-app-o65
+//
 function App() {
   const [socket] = useState(()=>io(':8000'))
   //const socket = io(':8000')
